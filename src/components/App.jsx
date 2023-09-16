@@ -1,4 +1,3 @@
-
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { Contact } from './Contact/Contact';
@@ -8,28 +7,11 @@ import { Filter } from './Filter/Filter';
 import { createContact, deleteContact } from '../redux/contactSlise';
 import { createFilter } from '../redux/filterSlice';
 
-// const getLSContacts = () => {
-//   const contacts = localStorage.getItem('contacts');
-//   if (contacts !== null) {
-//     return JSON.parse(contacts);
-//   }
-//   return [];
-// };
-
 export const App = () => {
-  // const [contacts, setContacts] = useState(getLSContacts);
-  // const [filter, setFilter] = useState('');
   const contacts = useSelector(state => state.contacts);
   const filter = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   localStorage.setItem('contacts', JSON.stringify(contacts));
-  // }, [contacts]);
-
-  // const handleDelete = e => {
-  //   setContacts(contacts.filter(contact => contact.id !== e));
-  // };
   const handleDelete = id => {
     dispatch(deleteContact(id));
   };
@@ -57,12 +39,7 @@ export const App = () => {
     } else {
       contactsLists.push({ name, id, number });
     }
-
-    // setContacts(contactsLists);
-    dispatch(createContact(contactsLists));
-
-
-
+    dispatch(createContact({ name, id, number }));
   };
 
   const handleChange = e => {
