@@ -4,17 +4,12 @@ import { Contact } from './Contact/Contact';
 import { Section } from './Section/Section';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
-import { createContact, deleteContact } from '../redux/contactSlise';
-import { createFilter } from '../redux/filterSlice';
+import { createContact } from '../redux/contactSlise';
 
 export const App = () => {
   const contacts = useSelector(state => state.contacts);
   const filter = useSelector(state => state.filter);
   const dispatch = useDispatch();
-
-  const handleDelete = id => {
-    dispatch(deleteContact(id));
-  };
 
   const getFilteredContacts = () => {
     const filterContactsList = contacts.filter(contact => {
@@ -42,22 +37,14 @@ export const App = () => {
     dispatch(createContact({ name, id, number }));
   };
 
-  const handleChange = e => {
-    const { value } = e.target;
-    dispatch(createFilter(value));
-  };
-
   return (
     <>
       <Section title="Phonebook">
         <Contact onSubmit={handleSubmitContact} />
       </Section>
       <Section title="Contacts">
-        <Filter filter={filter} handleChange={handleChange} />
-        <ContactList
-          contacts={getFilteredContacts()}
-          handleDelete={handleDelete}
-        />
+        <Filter />
+        <ContactList contacts={getFilteredContacts()} />
       </Section>
     </>
   );
