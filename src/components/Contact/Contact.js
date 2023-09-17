@@ -1,7 +1,6 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 import { createContact } from '../../redux/contactSlise';
 import { Label, Input, Button } from './Contact.styled';
 
@@ -67,6 +66,3 @@ export const Contact = () => {
   );
 };
 
-Contact.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
