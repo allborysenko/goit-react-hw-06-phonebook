@@ -26,7 +26,3 @@ export const Filter = () => {
   );
 };
 
-Filter.propTypes = {
-  filter: propTypes.string.isRequired,
-  handleChange: propTypes.func.isRequired,
-};

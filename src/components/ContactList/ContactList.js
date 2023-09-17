@@ -32,13 +32,4 @@ export const ContactList = () => {
   );
 };
 
-ContactList.propTypes = {
-  contacts: propTypes.arrayOf(
-    propTypes.exact({
-      id: propTypes.string.isRequired,
-      name: propTypes.string.isRequired,
-      number: propTypes.string.isRequired,
-    })
-  ),
-  handleDelete: propTypes.func.isRequired,
-};
+
