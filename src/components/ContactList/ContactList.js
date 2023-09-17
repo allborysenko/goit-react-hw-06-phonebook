@@ -1,4 +1,3 @@
-import propTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from '../../redux/contactSlise';
 import { Wrapper, List, Button } from './ContactList.styled';
@@ -31,5 +30,3 @@ export const ContactList = () => {
     </Wrapper>
   );
 };
-
-
